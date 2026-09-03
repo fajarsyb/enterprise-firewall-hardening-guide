@@ -23,6 +23,7 @@
    * [Modul 07: Strategi Pencatatan Log, SIEM & Telemetri](docs/07_LOGGING_MONITORING_AND_SIEM.md)
    * [Modul 08: Pengerasan Bidang Manajemen (Management Plane)](docs/08_MANAGEMENT_PLANE_HARDENING.md)
    * [Modul 09: Checklist Audit Kepatuhan (50-Point Compliance Checklist)](docs/09_FIREWALL_AUDIT_CHECKLIST.md)
+   * [Modul 10: Glosarium & Terminologi Lengkap (Firewall, Cyber, Network, Cloud, VPN, Routing, Switching)](docs/10_COMPREHENSIVE_TERMINOLOGY_GUIDE.md)
 3. [Dokumen Kompilasi Tunggal (Single-File Guide)](#dokumen-kompilasi-tunggal)
 4. [Standar Kepatuhan Internasional](#standar-kepatuhan-internasional)
 5. [Kontribusi](#kontribusi)
@@ -104,6 +105,10 @@ Prinsip dasar yang wajib dipatuhi dalam setiap perancangan dan operasional firew
 
 ### 📘 [Modul 09: Checklist Audit Kepatuhan (50-Point Checklist)](docs/09_FIREWALL_AUDIT_CHECKLIST.md)
 * Lembar kerja praktis berisi 50 poin evaluasi siap pakai untuk audit berkala tim keamanan internal maupun persiapan sertifikasi kepatuhan ISO 27001.
+
+### 📘 [Modul 10: Glosarium & Terminologi Lengkap](docs/10_COMPREHENSIVE_TERMINOLOGY_GUIDE.md)
+* Kamus istilah komprehensif 7 domain: **Firewall, Cybersecurity, Networking, Cloud, Tunneling, Routing, dan Switching**.
+* Setiap istilah dilengkapi dengan **Definisi Teknis**, **Analogi Sederhana**, dan **Contoh Kasus Riil**.
 
 ---
 
