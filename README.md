@@ -10,7 +10,14 @@
 
 ---
 
-## Daftar Isi
+## Daftar Dokumen Utama
+
+* 🏆 **[DOKUMENTASI_HARDENING_FIREWALL_ENTERPRISE.md](DOKUMENTASI_HARDENING_FIREWALL_ENTERPRISE.md)**: **Master Document Lengkap (Audit-Ready)** yang memuat seluruh pedoman arsitektur, glosarium, 4 pilar dasar, checklist pengerasan teknis Kategori A s.d. G, 4 Prosedur Operasional Standar (SOP), template matriks rule & form change request, serta penyelarasan standar CIS/NIST/ISO 27001/PCI-DSS.
+* 📄 **[ENTERPRISE_FIREWALL_GOLDEN_BASELINE.md](ENTERPRISE_FIREWALL_GOLDEN_BASELINE.md)**: Dokumen kompilasi seluruh modul teknis dalam 1 file utuh.
+
+---
+
+## Daftar Isi Modul Teknis (Chapters)
 
 1. [Filosofi Desain & 10 Aturan Emas](#10-aturan-emas-firewall-enterprise)
 2. [Modul Panduan Teknis (Chapters)](#modul-panduan-teknis-chapters)
