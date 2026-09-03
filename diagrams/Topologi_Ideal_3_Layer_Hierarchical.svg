@@ -1,0 +1,198 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1400" width="100%" height="100%" style="background-color: #0B132B; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <filter id="shadow" x="-3%" y="-3%" width="106%" height="108%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="2" dy="5" stdDeviation="6" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#38BDF8" />
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#F59E0B" />
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#10B981" />
+    </marker>
+  </defs>
+
+  <!-- TITLE -->
+  <g transform="translate(80, 35)">
+    <rect x="0" y="0" width="8" height="46" rx="4" fill="#10B981"/>
+    <text x="24" y="32" fill="#F8FAFC" font-size="26" font-weight="bold">TOPOLOGI ARSITEKTUR IDEAL &amp; AMAN: 3-LAYER HIERARCHICAL (CAMPUS / ENTERPRISE)</text>
+    <text x="24" y="56" fill="#94A3B8" font-size="13">North-South Traffic Optimization | Perimeter Security Edge + Core Backbone + Distribution SVI + Access PoE Stacks</text>
+  </g>
+
+  <!-- TIER 1: PERIMETER & WAN EDGE -->
+  <g transform="translate(80, 110)" filter="url(#shadow)">
+    <rect width="2240" height="210" rx="14" fill="#172033" stroke="#F59E0B" stroke-width="2"/>
+    <rect width="2240" height="32" rx="14" fill="#1F293D"/>
+    <text x="25" y="22" fill="#FDE68A" font-size="13" font-weight="bold">1. PERIMETER &amp; WAN EDGE (SECURITY ZONE: UNTRUST &amp; DMZ)</text>
+
+    <!-- Public Internet Cloud -->
+    <g transform="translate(40, 50)">
+      <path d="M 40 60 A 30 30 0 0 1 90 25 A 45 45 0 0 1 180 20 A 35 35 0 0 1 230 50 A 30 30 0 0 1 250 80 A 25 25 0 0 1 230 110 L 45 110 A 25 25 0 0 1 20 85 A 25 25 0 0 1 40 60 Z" fill="#0F2847" stroke="#38BDF8" stroke-width="2"/>
+      <text x="135" y="65" fill="#BAE6FD" font-size="13" font-weight="bold" text-anchor="middle">PUBLIC INTERNET</text>
+      <text x="135" y="85" fill="#38BDF8" font-size="10.5" text-anchor="middle">Dual Multi-Homing Tier-1 ISPs</text>
+    </g>
+
+    <!-- Border Routers -->
+    <rect x="360" y="55" width="400" height="120" rx="8" fill="#1E293B" stroke="#F59E0B" stroke-width="1.5"/>
+    <text x="380" y="82" fill="#F8FAFC" font-size="12.5" font-weight="bold">Dual Border Edge Routers</text>
+    <text x="380" y="104" fill="#94A3B8" font-size="11">• eBGP Peering &amp; BFD Fast-Failover</text>
+    <text x="380" y="124" fill="#94A3B8" font-size="11">• uRPF Anti-Spoofing &amp; Flowspec Drop</text>
+    <text x="380" y="144" fill="#F59E0B" font-size="10.5">Hardware wire-speed transit routing</text>
+
+    <!-- Perimeter NGFW Cluster -->
+    <rect x="800" y="55" width="860" height="120" rx="8" fill="#1E293B" stroke="#EF4444" stroke-width="2"/>
+    <text x="820" y="82" fill="#FCA5A5" font-size="13" font-weight="bold">Perimeter Next-Generation Firewall Cluster (Active-Passive HA)</text>
+    <text x="820" y="104" fill="#F8FAFC" font-size="11">• State Synchronization via Dual Dedicated Heartbeat Direct Cable (Zero-Drop Sesi)</text>
+    <text x="820" y="124" fill="#F8FAFC" font-size="11">• Central SNAT Pool, Deep SSL/TLS Decryption, Antivirus Stream, IPS Sensor</text>
+    <text x="820" y="144" fill="#10B981" font-size="10.5">Downlink 100G LACP Trunks ke Core Switches | Interface Link Monitoring (pmon) Aktif</text>
+
+    <!-- DMZ Subnet -->
+    <rect x="1700" y="55" width="500" height="120" rx="8" fill="#3B0764" stroke="#A855F7" stroke-width="2"/>
+    <text x="1720" y="82" fill="#F3E8FF" font-size="12.5" font-weight="bold">Demilitarized Zone (DMZ Buffer)</text>
+    <text x="1720" y="104" fill="#E9D5FF" font-size="11">• Public Web Portals, API Gateway, Mail Relay</text>
+    <text x="1720" y="124" fill="#E9D5FF" font-size="11">• WAF Reverse Proxy (OWASP Top 10 Filter)</text>
+    <text x="1720" y="144" fill="#F43F5E" font-size="10.5">Strict Zero-Trust: Dilarang inisiasi koneksi ke LAN</text>
+  </g>
+
+  <!-- TIER 2: CORE LAYER -->
+  <g transform="translate(80, 350)" filter="url(#shadow)">
+    <rect width="2240" height="230" rx="14" fill="#172033" stroke="#818CF8" stroke-width="2"/>
+    <rect width="2240" height="32" rx="14" fill="#1F293D"/>
+    <text x="25" y="22" fill="#E0E7FF" font-size="13" font-weight="bold">2. CORE LAYER (ULTRA HIGH-SPEED NON-BLOCKING BACKBONE SPINES)</text>
+
+    <!-- Core 01 -->
+    <rect x="250" y="60" width="750" height="135" rx="8" fill="#1E293B" stroke="#6366F1" stroke-width="2"/>
+    <text x="275" y="90" fill="#38BDF8" font-size="13" font-weight="bold">Core Switch 01 (Spine-01 / Master)</text>
+    <text x="275" y="112" fill="#F8FAFC" font-size="11">• 48x 25GbE SFP28 + 8x 100GbE QSFP28 Uplinks</text>
+    <text x="275" y="132" fill="#94A3B8" font-size="11">• Wire-Speed L3 Dynamic Routing Backbone (OSPF / IS-IS Non-Stop Routing)</text>
+    <text x="275" y="152" fill="#94A3B8" font-size="11">• Tanpa ACL Rumit (Murni Packet Transport Kecepatan Kawat)</text>
+    <text x="275" y="172" fill="#818CF8" font-size="10.5">Redundant Power Supplies (1+1) &amp; Dual Hot-Swap Fans</text>
+
+    <!-- Core 02 -->
+    <rect x="1240" y="60" width="750" height="135" rx="8" fill="#1E293B" stroke="#6366F1" stroke-width="2"/>
+    <text x="1265" y="90" fill="#38BDF8" font-size="13" font-weight="bold">Core Switch 02 (Spine-02 / Backup)</text>
+    <text x="1265" y="112" fill="#F8FAFC" font-size="11">• 48x 25GbE SFP28 + 8x 100GbE QSFP28 Uplinks</text>
+    <text x="1265" y="132" fill="#94A3B8" font-size="11">• Active-Active Multi-Chassis Link Aggregation (MC-LAG / Virtual Chassis)</text>
+    <text x="1265" y="152" fill="#94A3B8" font-size="11">• Sub-millisecond BFD Failover Convergence</text>
+    <text x="1265" y="172" fill="#818CF8" font-size="10.5">Redundant Power Supplies (1+1) &amp; Dual Hot-Swap Fans</text>
+
+    <!-- Inter-Core Link -->
+    <line x1="1000" y1="125" x2="1240" y2="125" stroke="#818CF8" stroke-width="5"/>
+    <text x="1120" y="115" fill="#C7D2FE" font-size="11" font-weight="bold" text-anchor="middle">100G Inter-Chassis Link</text>
+  </g>
+
+  <!-- TIER 3: DISTRIBUTION LAYER -->
+  <g transform="translate(80, 610)" filter="url(#shadow)">
+    <rect width="2240" height="240" rx="14" fill="#172033" stroke="#A855F7" stroke-width="2"/>
+    <rect width="2240" height="32" rx="14" fill="#1F293D"/>
+    <text x="25" y="22" fill="#F3E8FF" font-size="13" font-weight="bold">3. DISTRIBUTION LAYER (POLICY ENFORCEMENT, SVI GATEWAYS &amp; TRAFFIC AGGREGATION)</text>
+
+    <!-- Pod 1 -->
+    <rect x="35" y="55" width="515" height="155" rx="8" fill="#1E293B" stroke="#9333EA" stroke-width="1.5"/>
+    <text x="50" y="82" fill="#E9D5FF" font-size="12" font-weight="bold">Dist Pod 1: Campus West Block</text>
+    <text x="50" y="104" fill="#F8FAFC" font-size="10.5">• Dual Aggregation Switches (MC-LAG)</text>
+    <text x="50" y="122" fill="#38BDF8" font-size="10.5">• L3 SVI Default Gateway: VLAN 10 (Pegawai)</text>
+    <text x="50" y="140" fill="#94A3B8" font-size="10">• DHCP Snooping &amp; Dynamic ARP Inspection</text>
+    <text x="50" y="158" fill="#94A3B8" font-size="10">• QoS Rate Limiting &amp; Inter-VLAN Filter</text>
+    <text x="50" y="178" fill="#A855F7" font-size="9.5" font-weight="bold">Uplink: Dual 40G/100G to Core 01 &amp; 02</text>
+
+    <!-- Pod 2 -->
+    <rect x="585" y="55" width="515" height="155" rx="8" fill="#1E293B" stroke="#9333EA" stroke-width="1.5"/>
+    <text x="600" y="82" fill="#E9D5FF" font-size="12" font-weight="bold">Dist Pod 2: Campus East Block</text>
+    <text x="600" y="104" fill="#F8FAFC" font-size="10.5">• Dual Aggregation Switches (MC-LAG)</text>
+    <text x="600" y="122" fill="#38BDF8" font-size="10.5">• L3 SVI Default Gateway: VLAN 20 (Sitroom)</text>
+    <text x="600" y="140" fill="#94A3B8" font-size="10">• Subnets: 10.70.4.0/22, 10.104.12.0/24</text>
+    <text x="600" y="158" fill="#94A3B8" font-size="10">• Storm Control &amp; Port Isolation</text>
+    <text x="600" y="178" fill="#A855F7" font-size="9.5" font-weight="bold">Uplink: Dual 40G/100G to Core 01 &amp; 02</text>
+
+    <!-- Pod 3 -->
+    <rect x="1135" y="55" width="515" height="155" rx="8" fill="#1E293B" stroke="#10B981" stroke-width="2"/>
+    <text x="1150" y="82" fill="#A7F3D0" font-size="12" font-weight="bold">Dist Pod 3: Datacenter Server Farm</text>
+    <text x="1150" y="104" fill="#F8FAFC" font-size="10.5">• Internal Segmentation Firewall (ISFW)</text>
+    <text x="1150" y="122" fill="#38BDF8" font-size="10.5">• L3 SVI Gateway: VLAN 100 (Server Farm)</text>
+    <text x="1150" y="140" fill="#FCA5A5" font-size="10">• Strict East-West Microsegmentation</text>
+    <text x="1150" y="158" fill="#94A3B8" font-size="10">• Block SMB/RPC Lateral Movement</text>
+    <text x="1150" y="178" fill="#10B981" font-size="9.5" font-weight="bold">Uplink: Dual 40G/100G to Core 01 &amp; 02</text>
+
+    <!-- Pod 4 -->
+    <rect x="1685" y="55" width="520" height="155" rx="8" fill="#1E293B" stroke="#06B6D4" stroke-width="1.5"/>
+    <text x="1700" y="82" fill="#CFFAFE" font-size="12" font-weight="bold">Dist Pod 4: OOB &amp; Management</text>
+    <text x="1700" y="104" fill="#F8FAFC" font-size="10.5">• Dedicated Management Fabric Switch</text>
+    <text x="1700" y="122" fill="#38BDF8" font-size="10.5">• L3 SVI Gateway: VLAN 99 (10.10.2.0/24)</text>
+    <text x="1700" y="140" fill="#94A3B8" font-size="10">• FortiAnalyzer, PRTG, SmartZone, Infoblox</text>
+    <text x="1700" y="158" fill="#94A3B8" font-size="10">• RADIUS / TACACS+ / SNMPv3 Probes</text>
+    <text x="1700" y="178" fill="#06B6D4" font-size="9.5" font-weight="bold">Uplink: Dual 10G/40G to Core 01 &amp; 02</text>
+  </g>
+
+  <!-- TIER 4: ACCESS LAYER -->
+  <g transform="translate(80, 880)" filter="url(#shadow)">
+    <rect width="2240" height="240" rx="14" fill="#172033" stroke="#10B981" stroke-width="2"/>
+    <rect width="2240" height="32" rx="14" fill="#1F293D"/>
+    <text x="25" y="22" fill="#D1FAE5" font-size="13" font-weight="bold">4. ACCESS LAYER (POE+ ACCESS STACKS, WI-FI 6 APs &amp; EDGE DEVICES)</text>
+
+    <!-- Acc 1 -->
+    <rect x="35" y="55" width="515" height="155" rx="8" fill="#1E293B" stroke="#059669" stroke-width="1.5"/>
+    <text x="50" y="82" fill="#6EE7B7" font-size="12" font-weight="bold">Campus Workstation Access Stacks</text>
+    <text x="50" y="104" fill="#F8FAFC" font-size="10.5">• 48-Port PoE+ Gigabit Virtual Chassis Stacks</text>
+    <text x="50" y="122" fill="#94A3B8" font-size="10">• 802.1X Port Security, MAC Authentication</text>
+    <text x="50" y="140" fill="#94A3B8" font-size="10">• BPDU Guard &amp; Root Guard on all Edge Ports</text>
+    <text x="50" y="158" fill="#F59E0B" font-size="10">• Ribuan PC / Workstation Pegawai PUPR</text>
+    <text x="50" y="178" fill="#10B981" font-size="9.5" font-weight="bold">Dual 10G/25G LACP Uplinks ke Dist Pod 1</text>
+
+    <!-- Acc 2 -->
+    <rect x="585" y="55" width="515" height="155" rx="8" fill="#1E293B" stroke="#059669" stroke-width="1.5"/>
+    <text x="600" y="82" fill="#6EE7B7" font-size="12" font-weight="bold">Enterprise Wi-Fi 6 Access Points</text>
+    <text x="600" y="104" fill="#F8FAFC" font-size="10.5">• Multi-Gigabit (2.5G/5G) 802.3bt PoE++ Switches</text>
+    <text x="600" y="122" fill="#94A3B8" font-size="10">• Ruckus Enterprise Wi-Fi 6 Indoor &amp; Outdoor APs</text>
+    <text x="600" y="140" fill="#94A3B8" font-size="10">• SSID Pegawai (WPA3-Enterprise / 802.1X SSO)</text>
+    <text x="600" y="158" fill="#94A3B8" font-size="10">• SSID Tamu (Isolated Captive Portal VLAN)</text>
+    <text x="600" y="178" fill="#10B981" font-size="9.5" font-weight="bold">Dual 10G/25G LACP Uplinks ke Dist Pod 2</text>
+
+    <!-- Acc 3 -->
+    <rect x="1135" y="55" width="515" height="155" rx="8" fill="#1E293B" stroke="#059669" stroke-width="1.5"/>
+    <text x="1150" y="82" fill="#6EE7B7" font-size="12" font-weight="bold">Datacenter Top-of-Rack (ToR) Stacks</text>
+    <text x="1150" y="104" fill="#F8FAFC" font-size="10.5">• Dual 10G/25G Redundant ToR Switches</text>
+    <text x="1150" y="122" fill="#94A3B8" font-size="10">• ESXi / Proxmox Hypervisor Compute Nodes</text>
+    <text x="1150" y="140" fill="#94A3B8" font-size="10">• Active-Active Bonded NICs (LACP / teaming)</text>
+    <text x="1150" y="158" fill="#F59E0B" font-size="10">• Production Web, App &amp; Database Clusters</text>
+    <text x="1150" y="178" fill="#10B981" font-size="9.5" font-weight="bold">Dual 25G/40G LACP Uplinks ke Dist Pod 3</text>
+
+    <!-- Acc 4 -->
+    <rect x="1685" y="55" width="520" height="155" rx="8" fill="#1E293B" stroke="#059669" stroke-width="1.5"/>
+    <text x="1700" y="82" fill="#6EE7B7" font-size="12" font-weight="bold">CCTV &amp; Smart Building Facilities</text>
+    <text x="1700" y="104" fill="#F8FAFC" font-size="10.5">• Segregated PoE+ Switches for Physical Security</text>
+    <text x="1700" y="122" fill="#94A3B8" font-size="10">• IP Surveillance Cameras, NVRs, Access Controls</text>
+    <text x="1700" y="140" fill="#94A3B8" font-size="10">• Private Subnet (No Direct Internet Access)</text>
+    <text x="1700" y="158" fill="#F43F5E" font-size="10">• Explicit Block SMB Outbound (Worm Defense)</text>
+    <text x="1700" y="178" fill="#10B981" font-size="9.5" font-weight="bold">Dual 10G LACP Uplinks ke Dist Pod 4</text>
+  </g>
+
+  <!-- INTER-TIER CONNECTING TRUNKS -->
+  <!-- Perimeter to Core -->
+  <line x1="625" y1="320" x2="625" y2="350" stroke="#F59E0B" stroke-width="4" marker-end="url(#arrow-amber)"/>
+  <line x1="1615" y1="320" x2="1615" y2="350" stroke="#818CF8" stroke-width="4" marker-end="url(#arrow-blue)"/>
+
+  <!-- Core to Dist -->
+  <line x1="450" y1="580" x2="292" y2="610" stroke="#818CF8" stroke-width="3" marker-end="url(#arrow-blue)"/>
+  <line x1="800" y1="580" x2="842" y2="610" stroke="#818CF8" stroke-width="3" marker-end="url(#arrow-blue)"/>
+  <line x1="1450" y1="580" x2="1392" y2="610" stroke="#818CF8" stroke-width="3" marker-end="url(#arrow-blue)"/>
+  <line x1="1800" y1="580" x2="1945" y2="610" stroke="#818CF8" stroke-width="3" marker-end="url(#arrow-blue)"/>
+
+  <!-- Dist to Access -->
+  <line x1="292" y1="850" x2="292" y2="880" stroke="#10B981" stroke-width="3" marker-end="url(#arrow-green)"/>
+  <line x1="842" y1="850" x2="842" y2="880" stroke="#10B981" stroke-width="3" marker-end="url(#arrow-green)"/>
+  <line x1="1392" y1="850" x2="1392" y2="880" stroke="#10B981" stroke-width="3" marker-end="url(#arrow-green)"/>
+  <line x1="1945" y1="850" x2="1945" y2="880" stroke="#10B981" stroke-width="3" marker-end="url(#arrow-green)"/>
+
+  <!-- FOOTER LEGEND -->
+  <g transform="translate(80, 1150)" filter="url(#shadow)">
+    <rect width="2240" height="60" rx="10" fill="#1E293B" stroke="#475569" stroke-width="1.5"/>
+    <text x="30" y="36" fill="#F8FAFC" font-size="12" font-weight="bold">STANDAR ARSITEKTUR 3-LAYER:</text>
+    <text x="240" y="36" fill="#FDE68A" font-size="11.5">1. Core: High-speed transit murni tanpa ACL</text>
+    <text x="640" y="36" fill="#F3E8FF" font-size="11.5">2. Distribution: L3 SVI Default Gateway &amp; Penegakan Kebijakan Keamanan</text>
+    <text x="1260" y="36" fill="#D1FAE5" font-size="11.5">3. Access: Port Security (802.1X, DAI, DHCP Snooping, BPDU Guard)</text>
+    <text x="1870" y="36" fill="#38BDF8" font-size="11.5">4. Dual MC-LAG Uplinks di setiap tingkatan</text>
+  </g>
+</svg>

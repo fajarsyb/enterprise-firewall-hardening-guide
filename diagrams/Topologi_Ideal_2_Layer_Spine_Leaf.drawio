@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-09-03T09:20:00.000Z" agent="Antigravity Enterprise Architect" version="24.0.0" type="device">
+  <diagram id="diag_spineleaf" name="2-Tier Spine-Leaf Clos Fabric (Datacenter)">
+    <mxGraphModel dx="1800" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2400" pageHeight="1800" background="#0B132B" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- TITLE -->
+        <mxCell id="title" value="&lt;b&gt;IDEAL &amp; SECURE 2-TIER SPINE-LEAF CLOS FABRIC (MODERN DATACENTER)&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#94A3B8&quot; style=&quot;font-size:13px;&quot;&gt;Ultra-Low Latency East-West Traffic | EVPN-VXLAN Overlay | Underlay ECMP Routing | Zero-STP&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;fontColor=#F8FAFC;" vertex="1" parent="1">
+          <mxGeometry x="80" y="40" width="1200" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- CONTAINER 1: EXTERNAL BORDER & SECURITY (SERVICE LEAF EDGE) -->
+        <mxCell id="c_border_sec" value="&lt;b&gt;1. NORTH-SOUTH TRANSIT: BORDER LEAFS &amp; SECURITY SERVICES CLUSTER&lt;/b&gt;" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=10;fillColor=#172033;strokeColor=#EF4444;strokeWidth=2;fontColor=#FCA5A5;fontSize=13;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="80" y="120" width="2240" height="220" as="geometry" />
+        </mxCell>
+
+        <mxCell id="sl_wan" value="&lt;b&gt;WAN &amp; Cloud Interconnect&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#94A3B8&quot;&gt;Public Internet ISPs | BGP AS Peering&lt;br&gt;AWS Direct Connect / GCP Interconnect&lt;/font&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#38BDF8;strokeWidth=2;fontColor=#F8FAFC;" vertex="1" parent="c_border_sec">
+          <mxGeometry x="120" y="60" width="280" height="120" as="geometry" />
+        </mxCell>
+
+        <mxCell id="sl_bl1" value="&lt;b&gt;Border Leaf 01 (L3 Gateway)&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#94A3B8&quot;&gt;eBGP DC Gateway / DCI EVPN&lt;br&gt;Terminates External L3 Routes&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#F59E0B;strokeWidth=2;fontColor=#F8FAFC;" vertex="1" parent="c_border_sec">
+          <mxGeometry x="460" y="70" width="340" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="sl_bl2" value="&lt;b&gt;Border Leaf 02 (L3 Gateway)&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#94A3B8&quot;&gt;Redundant DC Gateway Pair&lt;br&gt;Active-Active External Multipathing&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#F59E0B;strokeWidth=2;fontColor=#F8FAFC;" vertex="1" parent="c_border_sec">
+          <mxGeometry x="840" y="70" width="340" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="sl_fw_cluster" value="&lt;b&gt;Security Services Cluster (Firewall &amp; WAF)&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#94A3B8&quot;&gt;High-Capacity NGFW Cluster + WAF / ADC&lt;br&gt;Service-Chaining via VRF Inter-Tenant Transit&lt;br&gt;Inspects North-South &amp; Cross-VRF East-West&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#450A0A;strokeColor=#EF4444;strokeWidth=2;fontColor=#FCA5A5;" vertex="1" parent="c_border_sec">
+          <mxGeometry x="1240" y="70" width="460" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="sl_oob_tele" value="&lt;b&gt;Telemetry &amp; Out-of-Band Network&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#94A3B8&quot;&gt;Dedicated Management Switch Fabric&lt;br&gt;Streaming Telemetry / gNMI / SIEM / IPMI&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#06B6D4;strokeWidth=2;fontColor=#F8FAFC;" vertex="1" parent="c_border_sec">
+          <mxGeometry x="1760" y="70" width="420" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- CONTAINER 2: SPINE LAYER -->
+        <mxCell id="c_spines" value="&lt;b&gt;2. SPINE LAYER (NON-BLOCKING HIGH-SPEED L3 IP FABRIC UNDERLAY - NO SERVERS DIRECT)&lt;/b&gt;" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=10;fillColor=#172033;strokeColor=#818CF8;strokeWidth=2;fontColor=#E0E7FF;fontSize=13;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="80" y="370" width="2240" height="220" as="geometry" />
+        </mxCell>
+
+        <mxCell id="spine1" value="&lt;b&gt;Spine Switch 01&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#94A3B8&quot;&gt;32x 100G/400G QSFP-DD&lt;br&gt;BGP EVPN Route Reflector&lt;br&gt;Equal-Cost Multi-Path (ECMP)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#6366F1;strokeWidth=2;fontColor=#F8FAFC;" vertex="1" parent="c_spines">
+          <mxGeometry x="160" y="65" width="400" height="110" as="geometry" />
+        </mxCell>
+
+        <mxCell id="spine2" value="&lt;b&gt;Spine Switch 02&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#94A3B8&quot;&gt;32x 100G/400G QSFP-DD&lt;br&gt;BGP EVPN Route Reflector&lt;br&gt;Equal-Cost Multi-Path (ECMP)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#6366F1;strokeWidth=2;fontColor=#F8FAFC;" vertex="1" parent="c_spines">
+          <mxGeometry x="690" y="65" width="400" height="110" as="geometry" />
+        </mxCell>
+
+        <mxCell id="spine3" value="&lt;b&gt;Spine Switch 03&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#94A3B8&quot;&gt;32x 100G/400G QSFP-DD&lt;br&gt;BGP EVPN Route Reflector&lt;br&gt;Equal-Cost Multi-Path (ECMP)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#6366F1;strokeWidth=2;fontColor=#F8FAFC;" vertex="1" parent="c_spines">
+          <mxGeometry x="1220" y="65" width="400" height="110" as="geometry" />
+        </mxCell>
+
+        <mxCell id="spine4" value="&lt;b&gt;Spine Switch 04&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#94A3B8&quot;&gt;32x 100G/400G QSFP-DD&lt;br&gt;BGP EVPN Route Reflector&lt;br&gt;Equal-Cost Multi-Path (ECMP)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#6366F1;strokeWidth=2;fontColor=#F8FAFC;" vertex="1" parent="c_spines">
+          <mxGeometry x="1750" y="65" width="400" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- CONTAINER 3: LEAF LAYER (TOP-OF-RACK / SERVICE LEAFS) -->
+        <mxCell id="c_leafs" value="&lt;b&gt;3. LEAF LAYER (TOP-OF-RACK VXLAN TUNNEL ENDPOINTS - VTEP / DISTRIBUTED ANYCAST GATEWAY)&lt;/b&gt;" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=10;fillColor=#172033;strokeColor=#10B981;strokeWidth=2;fontColor=#D1FAE5;fontSize=13;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="80" y="620" width="2240" height="250" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leaf1" value="&lt;b&gt;Leaf 01 &amp; 02 (Rack A: Web Pod)&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#94A3B8&quot;&gt;48x 25G SFP28 + 6x 100G Uplinks&lt;br&gt;VTEP IP / VRF-Web Anycast Gateway&lt;br&gt;Full-Mesh Uplinks to all 4 Spines&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#059669;strokeWidth=2;fontColor=#F8FAFC;" vertex="1" parent="c_leafs">
+          <mxGeometry x="60" y="65" width="480" height="130" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leaf2" value="&lt;b&gt;Leaf 03 &amp; 04 (Rack B: App Pod)&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#94A3B8&quot;&gt;48x 25G SFP28 + 6x 100G Uplinks&lt;br&gt;VTEP IP / VRF-App Anycast Gateway&lt;br&gt;Full-Mesh Uplinks to all 4 Spines&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#059669;strokeWidth=2;fontColor=#F8FAFC;" vertex="1" parent="c_leafs">
+          <mxGeometry x="600" y="65" width="480" height="130" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leaf3" value="&lt;b&gt;Leaf 05 &amp; 06 (Rack C: Database Pod)&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#94A3B8&quot;&gt;48x 25G SFP28 + 6x 100G Uplinks&lt;br&gt;VTEP IP / VRF-DB Anycast Gateway&lt;br&gt;Strict Microsegmentation Policy&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#059669;strokeWidth=2;fontColor=#F8FAFC;" vertex="1" parent="c_leafs">
+          <mxGeometry x="1140" y="65" width="480" height="130" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leaf4" value="&lt;b&gt;Leaf 07 &amp; 08 (Rack D: Storage / vSAN Pod)&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#94A3B8&quot;&gt;48x 25G/100G SFP28 NVMe-oF&lt;br&gt;RoCEv2 (RDMA over Converged Ethernet)&lt;br&gt;PFC / ECN Lossless Low Latency Fabric&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#059669;strokeWidth=2;fontColor=#F8FAFC;" vertex="1" parent="c_leafs">
+          <mxGeometry x="1680" y="65" width="500" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- CONTAINER 4: COMPUTE & STORAGE ENDPOINTS -->
+        <mxCell id="c_endpoints" value="&lt;b&gt;4. DATACENTER COMPUTE, VIRTUALIZATION &amp; CLOUD NATIVE WORKLOADS&lt;/b&gt;" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=10;fillColor=#172033;strokeColor=#F59E0B;strokeWidth=2;fontColor=#FDE68A;fontSize=13;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="80" y="900" width="2240" height="230" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ep1" value="&lt;b&gt;Kubernetes &amp; Web Containers&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#94A3B8&quot;&gt;Dual-Homed 25G LACP to Leaf 01/02&lt;br&gt;Microservices / Nginx Ingress&lt;br&gt;Subnet: 10.10.210.0/24 (VRF-Web)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#F59E0B;strokeWidth=2;fontColor=#F8FAFC;" vertex="1" parent="c_endpoints">
+          <mxGeometry x="60" y="60" width="480" height="120" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ep2" value="&lt;b&gt;Enterprise App Server Clusters&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#94A3B8&quot;&gt;Dual-Homed 25G LACP to Leaf 03/04&lt;br&gt;ESXi Hypervisors / Middleware VMs&lt;br&gt;Subnet: 10.10.220.0/24 (VRF-App)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#F59E0B;strokeWidth=2;fontColor=#F8FAFC;" vertex="1" parent="c_endpoints">
+          <mxGeometry x="600" y="60" width="480" height="120" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ep3" value="&lt;b&gt;Database Enterprise Clusters&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#94A3B8&quot;&gt;Dual-Homed 25G LACP to Leaf 05/06&lt;br&gt;Oracle RAC / PostgreSQL High-Availability&lt;br&gt;Subnet: 10.10.230.0/24 (VRF-DB)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#F59E0B;strokeWidth=2;fontColor=#F8FAFC;" vertex="1" parent="c_endpoints">
+          <mxGeometry x="1140" y="60" width="480" height="120" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ep4" value="&lt;b&gt;All-Flash SAN / NAS Arrays&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#94A3B8&quot;&gt;Dual-Homed 100G RoCEv2 to Leaf 07/08&lt;br&gt;NVMe-over-Fabrics Storage Tiers&lt;br&gt;Ultra-high IOPS / Microsecond Access&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#F59E0B;strokeWidth=2;fontColor=#F8FAFC;" vertex="1" parent="c_endpoints">
+          <mxGeometry x="1680" y="60" width="500" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- FULL MESH FABRIC LINES (SPINES TO LEAFS) -->
+        <mxCell id="f_line1" value="&lt;b&gt;Full-Mesh 100G Underlay ECMP (Every Leaf Connected to Every Spine - Zero STP)&lt;/b&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#818CF8;strokeWidth=3;" edge="1" parent="1" source="spine1" target="leaf1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="f_line2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#818CF8;strokeWidth=3;" edge="1" parent="1" source="spine2" target="leaf2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="f_line3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#818CF8;strokeWidth=3;" edge="1" parent="1" source="spine3" target="leaf3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="f_line4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#818CF8;strokeWidth=3;" edge="1" parent="1" source="spine4" target="leaf4"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- Connect Border Leafs to Spines -->
+        <mxCell id="b_line1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#F59E0B;strokeWidth=3;" edge="1" parent="1" source="sl_bl1" target="spine1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="b_line2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#F59E0B;strokeWidth=3;" edge="1" parent="1" source="sl_bl2" target="spine2"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- Connect Leafs to Endpoints -->
+        <mxCell id="ep_line1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#10B981;strokeWidth=3;" edge="1" parent="1" source="leaf1" target="ep1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ep_line2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#10B981;strokeWidth=3;" edge="1" parent="1" source="leaf2" target="ep2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ep_line3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#10B981;strokeWidth=3;" edge="1" parent="1" source="leaf3" target="ep3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ep_line4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#10B981;strokeWidth=3;" edge="1" parent="1" source="leaf4" target="ep4"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- BOTTOM LEGEND -->
+        <mxCell id="leg2" value="&lt;b&gt;CLOS FABRIC PRINCIPLES:&lt;/b&gt; &amp;nbsp;&amp;nbsp;&lt;font color=&quot;#818CF8&quot;&gt;━ 100G Underlay ECMP (Single-Hop East-West Latency)&lt;/font&gt; &amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp; &lt;font color=&quot;#10B981&quot;&gt;━ EVPN-VXLAN Overlay (L2 Extension over L3)&lt;/font&gt; &amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp; &lt;font color=&quot;#EF4444&quot;&gt;━ VRF Service Chaining to Firewall Cluster&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;strokeWidth=1.5;fontColor=#F8FAFC;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1160" width="2240" height="50" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

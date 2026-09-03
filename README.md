@@ -31,6 +31,7 @@
    * [Modul 08: Pengerasan Bidang Manajemen (Management Plane)](docs/08_MANAGEMENT_PLANE_HARDENING.md)
    * [Modul 09: Checklist Audit Kepatuhan (50-Point Compliance Checklist)](docs/09_FIREWALL_AUDIT_CHECKLIST.md)
    * [Modul 10: Glosarium & Terminologi Lengkap (Firewall, Cyber, Network, Cloud, VPN, Routing, Switching)](docs/10_COMPREHENSIVE_TERMINOLOGY_GUIDE.md)
+   * [Modul 11: Arsitektur Jaringan Ideal & Aman (3-Layer Hierarchical vs 2-Layer Spine-Leaf)](docs/11_IDEAL_NETWORK_TOPOLOGY_3LAYER_VS_SPINE_LEAF.md)
 3. [Dokumen Kompilasi Tunggal (Single-File Guide)](#dokumen-kompilasi-tunggal)
 4. [Standar Kepatuhan Internasional](#standar-kepatuhan-internasional)
 5. [Kontribusi](#kontribusi)
@@ -116,6 +117,12 @@ Prinsip dasar yang wajib dipatuhi dalam setiap perancangan dan operasional firew
 ### 📘 [Modul 10: Glosarium & Terminologi Lengkap](docs/10_COMPREHENSIVE_TERMINOLOGY_GUIDE.md)
 * Kamus istilah komprehensif 7 domain: **Firewall, Cybersecurity, Networking, Cloud, Tunneling, Routing, dan Switching**.
 * Setiap istilah dilengkapi dengan **Definisi Teknis**, **Analogi Sederhana**, dan **Contoh Kasus Riil**.
+
+### 📘 [Modul 11: Arsitektur Jaringan Ideal & Aman (3-Layer vs Spine-Leaf)](docs/11_IDEAL_NETWORK_TOPOLOGY_3LAYER_VS_SPINE_LEAF.md)
+* Panduan perancangan dua arsitektur jaringan enterprise paling aman:
+  1. **Model 1: 3-Layer Hierarchical (Campus):** Core wire-speed, Distribution L3 SVI gateway & ACL, Access 802.1X PoE+ stacks, perimeter NGFW, dan DMZ.
+  2. **Model 2: 2-Layer Spine-Leaf Clos Fabric (Datacenter):** L3 underlay ECMP, overlay BGP EVPN-VXLAN, Distributed Anycast Gateway, Service Leaf firewall cluster, dan zero Spanning Tree.
+* Dilengkapi matriks komparasi mendalam, pohon keputusan arsitektur, file diagram **Draw.io XML** dan gambar vektor **SVG**.
 
 ---
 

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-09-03T09:20:00.000Z" agent="Antigravity Enterprise Architect" version="24.0.0" type="device">
+  <diagram id="diag_3layer" name="3-Tier Hierarchical Architecture (Campus)">
+    <mxGraphModel dx="1800" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2400" pageHeight="1800" background="#0B132B" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- TITLE -->
+        <mxCell id="title" value="&lt;b&gt;IDEAL &amp; SECURE 3-TIER HIERARCHICAL ARCHITECTURE (CAMPUS / ENTERPRISE)&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#94A3B8&quot; style=&quot;font-size:13px;&quot;&gt;Standard North-South Traffic Optimization | Perimeter NGFW + Core + Distribution + Access + DMZ&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;fontColor=#F8FAFC;" vertex="1" parent="1">
+          <mxGeometry x="80" y="40" width="1200" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- CONTAINER 1: INTERNET & PERIMETER EDGE -->
+        <mxCell id="c_perimeter" value="&lt;b&gt;1. PERIMETER &amp; WAN EDGE (SECURITY ZONE UNTRUST)&lt;/b&gt;" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=10;fillColor=#172033;strokeColor=#F59E0B;strokeWidth=2;fontColor=#FDE68A;fontSize=13;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="80" y="120" width="2240" height="230" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p_internet" value="&lt;b&gt;Public Internet &amp; ISPs&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#94A3B8&quot;&gt;Dual Multi-Homing ISP Transit&lt;br&gt;eBGP Peering / BFD&lt;/font&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#38BDF8;strokeWidth=2;fontColor=#F8FAFC;" vertex="1" parent="c_perimeter">
+          <mxGeometry x="140" y="60" width="260" height="130" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p_border" value="&lt;b&gt;Border Routers (WAN Edge)&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#94A3B8&quot;&gt;Dual Edge L3 Routers / uRPF Anti-Spoofing&lt;br&gt;BGP Flowspec &amp; DDoS Scrubbing&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#F59E0B;strokeWidth=2;fontColor=#F8FAFC;" vertex="1" parent="c_perimeter">
+          <mxGeometry x="500" y="80" width="340" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p_fw1" value="&lt;b&gt;Perimeter NGFW Cluster (Primary)&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#94A3B8&quot;&gt;Active-Passive Stateful Failover&lt;br&gt;Deep SSL / IPS / AV / Botnet Shield&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#EF4444;strokeWidth=2;fontColor=#F8FAFC;" vertex="1" parent="c_perimeter">
+          <mxGeometry x="960" y="80" width="350" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p_fw2" value="&lt;b&gt;Perimeter NGFW Cluster (Secondary)&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#94A3B8&quot;&gt;Hot Standby / Dual Heartbeat Direct Link&lt;br&gt;Zero-Drop Session Synchronization&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#EF4444;strokeWidth=2;fontColor=#F8FAFC;" vertex="1" parent="c_perimeter">
+          <mxGeometry x="1350" y="80" width="350" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p_dmz" value="&lt;b&gt;DEMILITARIZED ZONE (DMZ)&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#94A3B8&quot;&gt;WAF Reverse Proxy | Public Web Portal&lt;br&gt;Strict Zero-Trust to Internal LAN&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3B0764;strokeColor=#A855F7;strokeWidth=2;fontColor=#F3E8FF;" vertex="1" parent="c_perimeter">
+          <mxGeometry x="1780" y="80" width="380" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- CONTAINER 2: CORE LAYER -->
+        <mxCell id="c_core" value="&lt;b&gt;2. CORE LAYER (ULTRA HIGH-SPEED NON-BLOCKING BACKBONE)&lt;/b&gt;" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=10;fillColor=#172033;strokeColor=#818CF8;strokeWidth=2;fontColor=#E0E7FF;fontSize=13;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="80" y="380" width="2240" height="230" as="geometry" />
+        </mxCell>
+
+        <mxCell id="core_sw1" value="&lt;b&gt;Core Switch 01 (Spine / Master)&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#94A3B8&quot;&gt;High-Density 40G/100G QSFP28&lt;br&gt;Wire-Speed L3 Routing Backbone&lt;br&gt;OSPF / IS-IS Non-Stop Routing (NSR)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#6366F1;strokeWidth=2;fontColor=#F8FAFC;" vertex="1" parent="c_core">
+          <mxGeometry x="450" y="70" width="460" height="110" as="geometry" />
+        </mxCell>
+
+        <mxCell id="core_sw2" value="&lt;b&gt;Core Switch 02 (Spine / Backup)&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#94A3B8&quot;&gt;High-Density 40G/100G QSFP28&lt;br&gt;Active-Active Redundant L3 Core&lt;br&gt;Sub-millisecond Convergence&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#6366F1;strokeWidth=2;fontColor=#F8FAFC;" vertex="1" parent="c_core">
+          <mxGeometry x="1330" y="70" width="460" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- CORE FABRIC INTERCONNECT -->
+        <mxCell id="core_link" value="&lt;b&gt;Double Line: Redundant 100G Inter-Switch Trunk (MC-LAG / Virtual Chassis)&lt;/b&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#818CF8;strokeWidth=4;fontColor=#C7D2FE;" edge="1" parent="c_core" source="core_sw1" target="core_sw2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- CONTAINER 3: DISTRIBUTION LAYER -->
+        <mxCell id="c_dist" value="&lt;b&gt;3. DISTRIBUTION LAYER (POLICY ENFORCEMENT, SVI / DEFAULT GATEWAYS &amp; AGGREGATION)&lt;/b&gt;" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=10;fillColor=#172033;strokeColor=#A855F7;strokeWidth=2;fontColor=#F3E8FF;fontSize=13;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="80" y="640" width="2240" height="260" as="geometry" />
+        </mxCell>
+
+        <mxCell id="dist_pod1" value="&lt;b&gt;Distribution Pod 1 (Campus West)&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#94A3B8&quot;&gt;Dual Aggregation Switches (MC-LAG)&lt;br&gt;SVI Gateway: VLAN 10 (Pegawai)&lt;br&gt;DHCP Snooping &amp; Dynamic ARP Inspection&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#9333EA;strokeWidth=2;fontColor=#F8FAFC;" vertex="1" parent="c_dist">
+          <mxGeometry x="80" y="70" width="460" height="130" as="geometry" />
+        </mxCell>
+
+        <mxCell id="dist_pod2" value="&lt;b&gt;Distribution Pod 2 (Campus East)&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#94A3B8&quot;&gt;Dual Aggregation Switches (MC-LAG)&lt;br&gt;SVI Gateway: VLAN 20 (Sitroom &amp; Facilities)&lt;br&gt;QoS Rate Limiting &amp; Access Control Lists&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#9333EA;strokeWidth=2;fontColor=#F8FAFC;" vertex="1" parent="c_dist">
+          <mxGeometry x="620" y="70" width="460" height="130" as="geometry" />
+        </mxCell>
+
+        <mxCell id="dist_pod3" value="&lt;b&gt;Distribution Pod 3 (Datacenter Agg)&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#94A3B8&quot;&gt;Internal Segmentation Firewall (ISFW)&lt;br&gt;SVI Gateway: VLAN 100 (Server Farm)&lt;br&gt;Strict East-West Inspection (Block SMB)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#10B981;strokeWidth=2;fontColor=#F8FAFC;" vertex="1" parent="c_dist">
+          <mxGeometry x="1160" y="70" width="460" height="130" as="geometry" />
+        </mxCell>
+
+        <mxCell id="dist_pod4" value="&lt;b&gt;Distribution Pod 4 (Management &amp; OOB)&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#94A3B8&quot;&gt;Isolated Mgmt Aggregation&lt;br&gt;SVI Gateway: VLAN 99 (OOB Mgmt)&lt;br&gt;RADIUS / TACACS+ / SIEM / NMS Probes&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#06B6D4;strokeWidth=2;fontColor=#F8FAFC;" vertex="1" parent="c_dist">
+          <mxGeometry x="1700" y="70" width="460" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- CONTAINER 4: ACCESS LAYER & ENDPOINTS -->
+        <mxCell id="c_access" value="&lt;b&gt;4. ACCESS LAYER (EDGE SWITCHES, POE+, WI-FI 6 APs &amp; END USER TERMINALS)&lt;/b&gt;" style="swimlane;whiteSpace=wrap;html=1;rounded=1;arcSize=10;fillColor=#172033;strokeColor=#10B981;strokeWidth=2;fontColor=#D1FAE5;fontSize=13;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="80" y="930" width="2240" height="260" as="geometry" />
+        </mxCell>
+
+        <mxCell id="acc_sw1" value="&lt;b&gt;Campus Workstation Switches&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#94A3B8&quot;&gt;48-Port PoE+ Gigabit Access Stacks&lt;br&gt;802.1X Port Security &amp; BPDU Guard&lt;br&gt;Ribuan PC Pegawai (VLAN 10)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#059669;strokeWidth=2;fontColor=#F8FAFC;" vertex="1" parent="c_access">
+          <mxGeometry x="80" y="70" width="460" height="130" as="geometry" />
+        </mxCell>
+
+        <mxCell id="acc_sw2" value="&lt;b&gt;Enterprise Wi-Fi 6 APs&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#94A3B8&quot;&gt;Multi-Gig (2.5G/5G) PoE++ Switches&lt;br&gt;Corporate SSID (Pegawai) &amp; Guest Wi-Fi&lt;br&gt;Managed via WLAN Controller&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#059669;strokeWidth=2;fontColor=#F8FAFC;" vertex="1" parent="c_access">
+          <mxGeometry x="620" y="70" width="460" height="130" as="geometry" />
+        </mxCell>
+
+        <mxCell id="acc_sw3" value="&lt;b&gt;Datacenter Top-of-Rack (ToR)&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#94A3B8&quot;&gt;Dual 10G/25G Redundant ToR Switches&lt;br&gt;Hypervisor ESXi / Proxmox Hosts&lt;br&gt;Production Web, App &amp; DB Clusters&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#10B981;strokeWidth=2;fontColor=#F8FAFC;" vertex="1" parent="c_access">
+          <mxGeometry x="1160" y="70" width="460" height="130" as="geometry" />
+        </mxCell>
+
+        <mxCell id="acc_sw4" value="&lt;b&gt;CCTV &amp; Smart Building IoT&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#94A3B8&quot;&gt;Isolated PoE Switches for Security&lt;br&gt;IP Cameras, Access Control, Sensors&lt;br&gt;Block SMB Outbound / No Internet Direct&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#06B6D4;strokeWidth=2;fontColor=#F8FAFC;" vertex="1" parent="c_access">
+          <mxGeometry x="1700" y="70" width="460" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- CONNECTING TRUNKS -->
+        <mxCell id="e1" value="&lt;b&gt;Dual 40G/100G Trunk Uplinks&lt;/b&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#F59E0B;strokeWidth=3;" edge="1" parent="1" source="p_border" target="core_sw1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#EF4444;strokeWidth=3;" edge="1" parent="1" source="p_fw1" target="core_sw1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#EF4444;strokeWidth=3;" edge="1" parent="1" source="p_fw2" target="core_sw2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Core to Dist Trunks -->
+        <mxCell id="e_c_d1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#818CF8;strokeWidth=3;" edge="1" parent="1" source="core_sw1" target="dist_pod1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e_c_d2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#818CF8;strokeWidth=3;" edge="1" parent="1" source="core_sw1" target="dist_pod2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e_c_d3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#818CF8;strokeWidth=3;" edge="1" parent="1" source="core_sw2" target="dist_pod3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e_c_d4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#818CF8;strokeWidth=3;" edge="1" parent="1" source="core_sw2" target="dist_pod4"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- Dist to Access Trunks -->
+        <mxCell id="e_d_a1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#10B981;strokeWidth=3;" edge="1" parent="1" source="dist_pod1" target="acc_sw1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e_d_a2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#10B981;strokeWidth=3;" edge="1" parent="1" source="dist_pod2" target="acc_sw2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e_d_a3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#10B981;strokeWidth=3;" edge="1" parent="1" source="dist_pod3" target="acc_sw3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e_d_a4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#10B981;strokeWidth=3;" edge="1" parent="1" source="dist_pod4" target="acc_sw4"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- BOTTOM LEGEND -->
+        <mxCell id="leg" value="&lt;b&gt;LEGEND KONEKSI:&lt;/b&gt; &amp;nbsp;&amp;nbsp;&lt;font color=&quot;#38BDF8&quot;&gt;━ Solid Blue: L2/L3 Physical Trunk&lt;/font&gt; &amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp; &lt;font color=&quot;#F59E0B&quot;&gt;━ Solid Orange: Inbound WAN Edge&lt;/font&gt; &amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp; &lt;font color=&quot;#EF4444&quot;&gt;━ Solid Red: Perimeter Security Path&lt;/font&gt; &amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp; &lt;font color=&quot;#818CF8&quot;&gt;━ Double Line: MC-LAG / Virtual Chassis 100G&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;strokeWidth=1.5;fontColor=#F8FAFC;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1220" width="2240" height="50" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
